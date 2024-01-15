@@ -1,0 +1,247 @@
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<div id="mesa-values"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interface Example</title>
+<style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 20px;
+    }
+    .box {
+      border: 1px solid #000;
+      padding: 10px;
+      flex-basis: calc(33% - 20px);
+      box-sizing: border-box;
+    }
+    .box h2 {
+      font-size: 20px;
+      border-bottom: 1px solid #000;
+      margin-bottom: 10px;
+    }
+    .box input, .box select {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    .label-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 5px;
+    }
+    .label-row label {
+      flex-basis: 50%;
+      margin-right: 10px;
+    }
+    .label-row input, .label-row select {
+      flex-basis: calc(50% - 10px);
+    }
+    .mesa-grid {
+  flex-grow: 1;
+  height: 80vh; /* Adjust the height as needed (e.g., 80% of the viewport height) */
+  overflow: auto;
+}
+
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <!-- Mesa Grid -->
+    <div class="box mesa-grid">
+        <h2>Mesa Simulation Grid</h2>
+        <iframe src="http://127.0.0.1:5001" style="width: 100%; height: 100%;" frameborder="0">
+            Mesa visualization
+        </iframe>
+    </div>
+
+  <div class="container">
+    
+    <div class="box">
+      <h2>Indoor Environmental Conditions</h2>
+      <div class="label-row">
+        <label for="view">View:</label>
+        <select id="view">
+          <option value="no_view">No View</option>
+          <option value="view">View</option>
+        </select>
+      </div>
+      <div class="label-row">
+        <label for="temperature">Temperature:</label>
+        <input type="number" id="temperature" value="" >
+      </div>
+      <div class="label-row">
+        <label for="light">Light:</label>
+        <input type="number" id="light" value ="">
+      </div>
+      <div class="label-row">
+        <label for="acoutics">Acoutics:</label>
+        <input type="number" id="acoutics" value="">
+      </div>
+      <div class="label-row">
+        <label for="airquality">Air Quality:</label>
+        <input type="number" id="air_quality" value="">
+      </div>
+      
+    <!-- Add more fields as needed -->
+  </div>
+
+  <div class="box">
+    <h2>Individual Factors</h2>
+      <div class="label-row">
+        <label for="IEQ priority">IEQ Propity:</label>
+        <select id="IEQ priority">
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+      <div class="label-row">
+        <label for="prefered temperature">Prefered Temperature:</label>
+        <input type="number" id="prefered temperature" value="37.5">
+      </div>
+      <div class="label-row">
+        <label for="preferedlight">Prefered Light:</label>
+        <input type="number" id="preferedlight" value="500">
+      </div>
+      <div class="label-row">
+        <label for="preferedacoutics">Prefered Acoutics:</label>
+        <input type="number" id="acoutics" value="37.5">
+      </div>
+      <div class="label-row">
+        <label for="preferedairquality">Prefered Air Quality:</label>
+        <input type="number" id="air_quality" value="500">
+      </div>
+    <!-- Add more fields as needed -->
+  </div>
+
+  <div class="box">
+    <h2>Passive systems</h2>
+    <div class="label-row">
+        <label for="window status">Window Status:</label>
+        <select id="window status">
+          <option value="close">close</option>
+          <option value="open">open</option>
+        </select>
+      </div>
+      <div class="label-row">
+        <label for="blind status">Blind Status:</label>
+        <select id="blind status">
+          <option value="close">close</option>
+          <option value="open">open</option>
+        </select>
+      </div>
+    <!-- Add more fields as needed -->
+  </div>
+
+  <div class="box">
+    <h2>Window Beliefs</h2>
+    <div class="label-row">
+      <label for="window-temperature">Adjusting Window Temperature:</label>
+      <select id="window-temperature">
+        <option value="improve">Improve</option>
+      </select>
+    </div>
+    <div class="label-row">
+        <label for="window-airquality">Adjusting Window Airquality:</label>
+        <select id="window-airquality">
+          <option value="improve">Improve</option>
+        </select>
+      </div>
+      <div class="label-row">
+        <label for="window-acoustion">Adjusting Window Acoustion:</label>
+        <select id="window-acoustion">
+          <option value="improve">Improve</option>
+        </select>
+      </div>
+    <!-- Add more fields as needed -->
+  </div>
+
+  <div class="box">
+    <h2>Window TBP conditions</h2>
+    <div class="label-row">
+      <label for="window-attitude"> Window Attitude:</label>
+      <input type="number" id="window-attitude" value="3">
+    </div><div class="label-row">
+        <label for="window-percieerved norm"> Window percieerved norm:</label>
+        <input type="number" id="window-percieerved norm" value="5">
+      </div>
+      <div class="label-row">
+        <label for="window-percieerved Behiaviorl conditions"> Window percieerved Behiaviorl conditions:</label>
+        <input type="number" id="window-percieerved Behiaviorl conditions" value="5">
+      </div>
+      <div class="label-row">
+        <label for="window-intention"> Window intention:</label>
+        <input type="number" id="window-intention" value="5">
+      </div>
+    <!-- Add more fields as needed -->
+  </div>
+
+
+  <div class="box">
+    <h2>Active systems</h2>
+    <div class="label-row">
+        <label for="air condition status">Air Condition Status:</label>
+        <select id="air condition status">
+          <option value="close">close</option>
+          <option value="open">open</option>
+        </select>
+      </div>
+      <div class="label-row">
+        <label for="aritficila light status">Aritficila Light Status:</label>
+        <select id="aritficila light status">
+          <option value="close">close</option>
+          <option value="open">open</option>
+        </select>
+      </div>
+    <!-- Add more fields as needed -->
+  </div>
+
+  <div class="box">
+    <h2>Blind Beliefs</h2>
+    <div class="label-row">
+        <label for="blind-temperature">Adjusting blind Temperature:</label>
+        <select id="blind-temperature">
+          <option value="improve">Improve</option>
+        </select>
+      </div>
+      <div class="label-row">
+          <label for="blind-airquality">Adjusting blind Airquality:</label>
+          <select id="blind-airquality">
+            <option value="improve">Improve</option>
+          </select>
+        </div>
+        <div class="label-row">
+          <label for="blind-acoustion">Adjusting blind Acoustion:</label>
+          <select id="blind-acoustion">
+            <option value="improve">Improve</option>
+          </select>
+        </div>
+    <!-- Add more fields as needed -->
+  </div>
+
+  <div class="box">
+    <h2>Blind TBP conditions</h2>
+    <div class="label-row">
+        <label for="blind-attitude"> blind Attitude:</label>
+        <input type="number" id="blind-attitude" value="3">
+      </div><div class="label-row">
+          <label for="blind-percieerved norm"> blind percieerved norm:</label>
+          <input type="number" id="blind-percieerved norm" value="5">
+        </div>
+        <div class="label-row">
+          <label for="blind-percieerved Behiaviorl conditions"> blind percieerved Behiaviorl conditions:</label>
+          <input type="number" id="blind-percieerved Behiaviorl conditions" value="5">
+        </div>
+        <div class="label-row">
+          <label for="blind-intention"> blind intention:</label>
+          <input type="number" id="blind-intention" value="5">
+        </div>
+    <!-- Add more fields as needed -->
+  </div>
+<body>
+</html>
